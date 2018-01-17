@@ -1,0 +1,13 @@
+body, html {
+  padding:0;
+  margin:0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.body-address {
+  max-width:600px;
+  width:95%;
+  margin:0 auto;
+  display:flex;
+  flex-direction:row;
+}

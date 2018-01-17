@@ -4,7 +4,7 @@ import { AddressApiService } from '../address-api.service';
 @Component({
   selector: 'address-list',
   templateUrl: './address-list.component.html',
-  styleUrls: ['./address-list.component.css']
+  styleUrls: ['./address-list.component.scss']
 })
 export class AddressListComponent implements OnInit {
 

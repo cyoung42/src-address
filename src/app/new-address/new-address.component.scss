@@ -1,0 +1,15 @@
+.address-form {
+  width:50%;
+
+
+  input[type=text] {
+    outline:0;
+  }
+
+  form.ng-touched {
+    input.ng-invalid {
+      border:1px solid red;
+    }
+  }
+
+}
