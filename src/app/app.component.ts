@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,11 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+
+  addressOptions : any {
+    selectedAddress: null,
+    searchTotal: null,
+    formFields: {}
+  };
 
 }

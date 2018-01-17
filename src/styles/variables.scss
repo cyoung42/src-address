@@ -1,0 +1,52 @@
+/*********************
+COLORS
+*********************/
+
+$orange:#e4820f;
+
+$light-blue:#0FA2E4;
+$blue:#006997;
+$bright-blue:rgba(1,84,166,1);
+
+$light-green:#1DB18E;
+
+$light-grey:#b2b2b2;
+$medium-grey:#727272;
+$dark-grey:#4a4a4a;
+
+$green : #14892C;
+$red : #891424;
+
+$system-red : #DD0808;
+
+
+/*********************
+FONTS
+*********************/
+
+
+
+
+/*********************
+BREAKPOINTS
+*********************/
+
+ @mixin breakpoint($point) {
+   @if $point == desktop {
+     @media (min-width: 1224px) { @content ; }
+  }
+    @else if $point == proTablet {
+     @media (max-width: 1223px) { @content ; }
+  }
+   @else if $point == tablet {
+     @media (max-width: 768px)  { @content ; }
+  }
+  @else if $point == mobile {
+     @media (max-width: 480px)  { @content ; }
+
+  }
+}
+
+$mobile : 480px;
+$tablet : 768px;
+$tablet-pro : 1366px;

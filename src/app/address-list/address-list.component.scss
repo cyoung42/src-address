@@ -1,3 +1,46 @@
+@import '~styles/variables';
+
 .address-list {
-  width:50%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+
+  .address-row {
+    border-left:2px solid $orange;
+    padding-bottom:30px;
+    margin-bottom:30px;
+    display:flex;
+    flex-direction:column;
+
+    &:hover {
+      cursor: pointer;
+      border-left:2px solid $light-blue;
+
+      .title {
+        background:$light-blue;
+      }
+    }
+
+    &.selected {
+      border-left:2px solid $medium-grey;
+
+      .title {
+        background:$medium-grey;
+      }
+    }
+
+    .title {
+      width:calc(100% - 20px);
+      text-transform: uppercase;
+      color:white;
+      background:$orange;
+      padding:10px;
+      margin-bottom:10px;
+    }
+
+    span {
+      margin-left:10px;
+      text-transform: capitalize;
+    }
+  }
 }

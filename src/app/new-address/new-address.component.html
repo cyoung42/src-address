@@ -1,13 +1,30 @@
 <div class="address-form">
+
+  <div class="error" *ngIf="error"> Please fix indicated errors</div>
+
   <form (ngSubmit)="onSubmit(f)" #f="ngForm"  novalidate>
-    <input type="text" name="entryname" placeholder="Entry Name" ngModel >
-    <input type="text" name="companyname" placeholder="Company Name*" ngModel required>
-    <input type="text" name="recipientname" placeholder="Recipient Name*" ngModel required>
-    <input type="text" name="street1" placeholder="Street Line 1*" ngModel required>
-    <input type="text" name="street2" placeholder="Street Line 2" ngModel>
-    <input type="text" name="city" placeholder="City*" ngModel required>
-    <input type="text" name="state" placeholder="State*" pattern="[A-Za-z]{2}" ngModel required>
-    <input type="text" name="zip" placeholder="Zip*" pattern="^[0-9]{5}(?:-[0-9]{4})?$" ngModel required>
-    <button>add address</button>
+    <div *ngIf="this.options.selectedAddress !== null; else inputBlock" >
+      <input type="text" name="entryname" placeholder="Entry Name" value="{{this.options.selectedAddress.entryname}}">
+      <input type="text" name="companyname" placeholder="Company Name*" value="{{this.options.selectedAddress.companyname}}" >
+      <input type="text" name="recipientname" placeholder="Recipient Name*" value="{{this.options.selectedAddress.recipientname}}" >
+      <input type="text" name="street1" placeholder="Street Line 1*" value="{{this.options.selectedAddress.street1}}" >
+      <input type="text" name="street2" placeholder="Street Line 2" value="{{this.options.selectedAddress.street2}}" >
+      <input type="text" class="half" name="city" placeholder="City*" value="{{this.options.selectedAddress.city}}" >
+      <input type="text" class="fourth" name="state" placeholder="State*" value="{{this.options.selectedAddress.state}}" >
+      <input type="text" class="fourth" name="zip" placeholder="Zip*" value="{{this.options.selectedAddress.zip}}" >
+      <div class="button" (click)="resetForm()">reset form</div>
+    </div>
+
+     <ng-template #inputBlock>
+        <input [ngClass]="{'show': entryShow, 'entry':true }" type="text" name="entryname" placeholder="Entry Name" ngModel >
+        <input type="text" name="companyname" placeholder="Company Name*" [(ngModel)]="companyname" required (ngModelChange)="inputChange($event, 'companyname')" >
+        <input type="text" name="recipientname" placeholder="Recipient Name*" ngModel required (ngModelChange)="inputChange($event, 'recipientname')" >
+        <input type="text" name="street1" placeholder="Street Line 1*" ngModel required (ngModelChange)="inputChange($event, 'street1')">
+        <input type="text" name="street2" placeholder="Street Line 2" ngModel (ngModelChange)="inputChange($event, 'street2')">
+        <input type="text" class="half" name="city" placeholder="City*" ngModel required (ngModelChange)="inputChange($event, 'city')">
+        <input type="text" class="fourth" name="state" placeholder="State*" pattern="[A-Za-z]{2}" ngModel required (ngModelChange)="inputChange($event, 'state')">
+        <input type="text" class="fourth" name="zip" placeholder="Zip*" pattern="^[0-9]{5}(?:-[0-9]{4})?$" ngModel required (ngModelChange)="inputChange($event, 'zip')">
+        <button>add address</button>
+    </ng-template>
   </form>
 </div>

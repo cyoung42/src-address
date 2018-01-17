@@ -1,6 +1,10 @@
 <div class="address-list">
-  <div class="row" *ngFor="let a of addresses">
-    {{a.companyname}}
-    {{a.entryname}}
+  <div class="address-row" *ngFor="let a of displayAddresses" (click)="selectAddress(a.id)" [ngClass]="{ 'selected': selectedID == a.id }">
+    <div class="title">{{a.entryname}}</div>
+    <span>{{a.companyname}}</span>
+    <span>{{a.recipientname}}</span>
+    <span>{{a.street1}}</span>
+    <span *ngIf="a.street2 !== undefined && a.street2 !== ''">{{a.street2}}<br/></span>
+    <span>{{a.city}}, {{a.state}} {{a.zip}}</span>
   </div>
 </div>

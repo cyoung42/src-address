@@ -1,7 +1,15 @@
-body, html {
-  padding:0;
-  margin:0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@import '~styles/variables';
+
+header {
+  width:100%;
+  background:$blue;
+  color:white;
+  text-transform: uppercase;
+  font-size:1em;
+  text-align: center;
+  padding:10px 0;
+  margin-bottom:20px;
+  font-weight:300;
 }
 
 .body-address {
@@ -10,4 +18,5 @@ body, html {
   margin:0 auto;
   display:flex;
   flex-direction:row;
+  justify-content: space-between;
 }
