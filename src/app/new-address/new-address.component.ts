@@ -17,11 +17,10 @@ export class NewAddressComponent implements OnInit {
   constructor(private addressService: AddressApiService) { }
 
   ngOnInit() {
-    console.dir(this.options);
+
   }
 
   ngOnChanges(changes: any) {
-    console.dir(this.options);
     if (this.options.searchTotal == 0) { this.entryShow = true; }
   }
 
@@ -40,13 +39,8 @@ export class NewAddressComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    //console.log('on submit');
-    //console.dir(f.value);
-    //console.log(f.valid);
-
     if (f.valid) {
       this.error = false;
-      console.log('valid');
       this.addressService.newAddress(f.value.entryname, f.value.companyname, f.value.recipientname, f.value.street1, f.value.street2, f.value.city, f.value.state.toUpperCase(), f.value.zip);
 
       f.reset();

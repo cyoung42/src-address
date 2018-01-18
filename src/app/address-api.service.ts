@@ -13,8 +13,8 @@ export class AddressApiService {
   }
 
   newAddress(ename, cname, rname, s1, s2, c, st, z) {
-    console.log(`newAddress: ${ename},${cname},${rname},${s1},${s2},${c},${st},${z}`);
-    
+    //console.log(`newAddress: ${ename}, ${cname}, ${rname}, ${s1}, ${s2}, ${c}, ${st}, ${z}`);
+
     const body = {
       entryname : ename,
       companyname: cname,
