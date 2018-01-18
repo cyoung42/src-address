@@ -1,12 +1,17 @@
 @import '~styles/variables';
 
 .address-form {
-  width:100%;
+  width:300px;
+  margin:0 20px;
   display:flex;
   flex-direction:row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  @include breakpoint(mobile) {
+    margin:0 auto 50px auto;
+  }
 
   .error {
     font-size:.8em;

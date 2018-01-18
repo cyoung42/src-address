@@ -13,10 +13,11 @@ header {
 }
 
 .body-address {
-  max-width:600px;
-  width:95%;
-  margin:0 auto;
   display:flex;
   flex-direction:row;
   justify-content: space-between;
+
+  @include breakpoint(mobile) {
+    flex-direction:column;
+  }
 }

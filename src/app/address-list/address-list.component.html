@@ -1,5 +1,5 @@
 <div class="address-list">
-  <div class="address-row" *ngFor="let a of displayAddresses" (click)="selectAddress(a.id)" [ngClass]="{ 'selected': selectedID == a.id }">
+  <div class="address-cell" *ngFor="let a of displayAddresses" (click)="selectAddress(a.id)" [ngClass]="{ 'selected': selectedID == a.id }">
     <div class="title">{{a.entryname}}</div>
     <span>{{a.companyname}}</span>
     <span>{{a.recipientname}}</span>

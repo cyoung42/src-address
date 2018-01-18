@@ -11,16 +11,17 @@ export class NewAddressComponent implements OnInit {
   @Input() options : any;
   @Output() optionsChange = new EventEmitter();
 
-  entryShow : false;
-  error : false;
+  entryShow : boolean = false;
+  error : boolean = false;
 
   constructor(private addressService: AddressApiService) { }
 
   ngOnInit() {
-
+    console.dir(this.options);
   }
 
   ngOnChanges(changes: any) {
+    console.dir(this.options);
     if (this.options.searchTotal == 0) { this.entryShow = true; }
   }
 
@@ -47,7 +48,13 @@ export class NewAddressComponent implements OnInit {
       this.error = false;
       console.log('valid');
       this.addressService.newAddress(f.value.entryname, f.value.companyname, f.value.recipientname, f.value.street1, f.value.street2, f.value.city, f.value.state.toUpperCase(), f.value.zip);
+
       f.reset();
+
+      this.options.formFields = {};
+      let newObj = Object.assign({}, this.options);
+      this.optionsChange.emit(newObj);
+
     } else {
       this.error = true;
     }

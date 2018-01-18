@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 import * as _ from 'underscore';
 
@@ -10,10 +10,14 @@ import * as _ from 'underscore';
 
 export class AppComponent {
 
-  addressOptions : any {
-    selectedAddress: null,
-    searchTotal: null,
-    formFields: {}
-  };
+  addressOptions : any;
+
+  ngOnInit() {
+    this.addressOptions = {
+      selectedAddress : null,
+      searchTotal : null,
+      formFields : {}
+    };
+  }
 
 }
